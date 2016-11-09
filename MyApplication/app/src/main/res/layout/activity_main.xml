@@ -11,15 +11,17 @@
         <import type="android.view.View" />
     </data>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context="happy.me.violet.violetbinding.MainActivity">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
             android:gravity="center"
             android:padding="10dp"
             android:text="@{mainPageData.title}"
@@ -28,7 +30,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:padding="10dp"
             android:text="@{mainPageData.content}"
             android:visibility="@{mainPageData.showContent?View.VISIBLE:View.GONE}" />
-    </RelativeLayout>
+    </LinearLayout>
 </layout>
