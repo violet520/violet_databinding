@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+//apply tinker插件
+apply plugin: 'com.tencent.tinker.patch'
 
 android {
     compileSdkVersion 24
@@ -22,6 +24,10 @@ android {
     }
 }
 
+def gitSha() {
+    return 'git rev-parse --short HEAD'.execute().text.trim()
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -29,4 +35,8 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+    //可选，用于生成application类
+    provided 'com.tencent.tinker:tinker-android-anno:1.7.6'
+    //tinker的核心库
+    compile 'com.tencent.tinker:tinker-android-lib:1.7.6'
 }

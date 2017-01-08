@@ -19,11 +19,13 @@
         tools:context="happy.me.violet.violetbinding.MainActivity">
 
         <TextView
+            android:id="@+id/activity_main_0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_green_dark"
             android:gravity="center"
             android:padding="10dp"
+            android:tag="activity_main_0"
             android:text="@{mainPageData.title}"
             android:visibility="@{mainPageData.showTitle?View.VISIBLE:View.GONE}" />
 
@@ -35,5 +37,18 @@
             android:padding="10dp"
             android:text="@{mainPageData.content}"
             android:visibility="@{mainPageData.showContent?View.VISIBLE:View.GONE}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{mainPageData.showContent?View.VISIBLE:View.GONE}">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="onPressCustomImageView"
+                android:src="@color/colorPrimary"
+                android:visibility="@{mainPageData.showContent?View.VISIBLE:View.GONE}" />
+        </LinearLayout>
     </LinearLayout>
 </layout>
